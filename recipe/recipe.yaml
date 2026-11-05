@@ -10,9 +10,8 @@ package:
 build:
   number: ${{ build_number }}
   string: ${{ build_number }}_${{ py_impl }}
-  script:
-    interpreter: brush
-    file: build.sh
+  # also on Windows, where bash comes from m2-bash in the build env
+  script: build.sh
   skip:
     - cross_target_platform == target_platform
     # win-arm64 is the only Windows cross target, and it is built from win-64
@@ -30,12 +29,12 @@ build:
 
 requirements:
   build:
-    - brush
     - if: unix
       then:
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
       else:
+        - m2-bash
         - m2-coreutils
   host:
   run:
