@@ -64,18 +64,33 @@ tests:
         - echo ${{ freethreading }}
   - if: win
     then:
-      - script:
-        - if not exist %PREFIX%\etc\conda\activate.d\activate_z-cross-python_${{ cross_target_platform }}.bat exit 1
-        - if not exist %PREFIX%\etc\conda\deactivate.d\deactivate_z-cross-python_${{ cross_target_platform }}.bat exit 1
-        - if not exist %PREFIX%\etc\conda\cross-python\sitecustomize.py exit 1
-        - echo ${{ freethreading }}
-        # run the activation as a downstream build would, then check that
-        # the build python reports the target platform
-        - set CONDA_BUILD=1
-        - set CONDA_BUILD_STATE=
-        - set "BUILD_PREFIX=%PREFIX%"
-        - call %PREFIX%\etc\conda\activate.d\activate_z-cross-python_${{ cross_target_platform }}.bat
-        - python -c "import sysconfig; p = sysconfig.get_platform(); s = sysconfig.get_config_var('EXT_SUFFIX'); print(p, s); assert p == '${{ cross_target_platform }}' and s.endswith('-win_arm64.pyd')"
+      - files:
+          recipe:
+            - smoketest/*
+        requirements:
+          run:
+            - pip
+            - setuptools
+            - packaging
+        script:
+          - if not exist %PREFIX%\etc\conda\activate.d\activate_z-cross-python_${{ cross_target_platform }}.bat exit 1
+          - if not exist %PREFIX%\etc\conda\deactivate.d\deactivate_z-cross-python_${{ cross_target_platform }}.bat exit 1
+          - if not exist %PREFIX%\etc\conda\cross-python\sitecustomize.py exit 1
+          - echo ${{ freethreading }}
+          # T2/T3: run the activation as a downstream build would, then check
+          # the environment it sets and what the build python reports
+          - set CONDA_BUILD=1
+          - set CONDA_BUILD_STATE=
+          - set "BUILD_PREFIX=%PREFIX%"
+          - set "_SMOKE_PATH=%PATH%"
+          - call %PREFIX%\etc\conda\activate.d\activate_z-cross-python_${{ cross_target_platform }}.bat
+          - python smoketest\check_activation.py ${{ cross_target_platform }}
+          # T4: the vs_win-arm64 compiler emits ARM64 objects
+          - python smoketest\check_compiler.py smoketest\smoke.c
+          - call %PREFIX%\etc\conda\deactivate.d\deactivate_z-cross-python_${{ cross_target_platform }}.bat
+          - python smoketest\check_deactivation.py
+          # T5: a literal %PREFIX%\python.exe must reach the build python
+          - python smoketest\smoke_shim.py %PREFIX%\etc\conda\activate.d\activate_z-cross-python_${{ cross_target_platform }}.bat %PREFIX%\etc\conda\deactivate.d\deactivate_z-cross-python_${{ cross_target_platform }}.bat
 
 about:
   license: LicenseRef-OTHER
