@@ -39,10 +39,11 @@ rem pip: install into the target prefix, not the build python's own
 set "PIP_PREFIX=%PREFIX%"
 
 rem recipe scripts call the target python by its literal path, which cannot
-rem run here: put the x64 launcher in its place. Rename, never overwrite: the
-rem original is hardlinked to the package cache.
-if /i not "%PREFIX%" == "%BUILD_PREFIX%" if exist "%PREFIX%\python.exe" if not exist "%PREFIX%\python.exe.cross-python-orig" (
-  move /y "%PREFIX%\python.exe" "%PREFIX%\python.exe.cross-python-orig" >nul
+rem run here: put the x64 launcher in its place. Move, never overwrite: the
+rem original is hardlinked to the package cache. The backup goes to
+rem BUILD_PREFIX because any new file in PREFIX would be packaged.
+if /i not "%PREFIX%" == "%BUILD_PREFIX%" if exist "%PREFIX%\python.exe" if not exist "%BUILD_PREFIX%\etc\conda\cross-python\host-python.exe" (
+  move /y "%PREFIX%\python.exe" "%BUILD_PREFIX%\etc\conda\cross-python\host-python.exe" >nul
   copy /y "%BUILD_PREFIX%\etc\conda\cross-python\python-shim.exe" "%PREFIX%\python.exe" >nul
 )
 

@@ -2,9 +2,9 @@
 if not "%CONDA_BUILD%" == "1" exit /b 0
 if "%CONDA_BUILD_STATE%" == "TEST" exit /b 0
 
-if exist "%PREFIX%\python.exe.cross-python-orig" (
+if exist "%BUILD_PREFIX%\etc\conda\cross-python\host-python.exe" (
   del /f "%PREFIX%\python.exe"
-  move /y "%PREFIX%\python.exe.cross-python-orig" "%PREFIX%\python.exe" >nul
+  move /y "%BUILD_PREFIX%\etc\conda\cross-python\host-python.exe" "%PREFIX%\python.exe" >nul
 )
 
 set "PYTHON=%_CONDA_BACKUP_CROSS_PYTHON_PYTHON%"

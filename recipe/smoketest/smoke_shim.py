@@ -35,7 +35,7 @@ with tempfile.TemporaryDirectory() as tmp:
     res = subprocess.run(["cmd", "/d", "/c", probe], env=env, capture_output=True, text=True)
     with open(fake, "rb") as f:
         restored = f.read() == JUNK
-    leftover = os.path.exists(fake + ".cross-python-orig")
+    leftover = os.path.exists(os.path.join(sys.prefix, "etc", "conda", "cross-python", "host-python.exe"))
 
 out = res.stdout.strip().splitlines()
 reached = (
