@@ -1,0 +1,517 @@
+# This file was generated automatically from conda-smithy. To update this configuration,
+# update the conda-forge.yml and/or the recipe/meta.yaml.
+# -*- mode: yaml -*-
+
+jobs:
+- job: osx
+  pool:
+    vmImage: $(vm_image)
+  strategy:
+    matrix:
+      osx_arm64_cross_target_platformlinux-64freethreadingnopy_implcp313version3.13:
+        CONFIG: osx_arm64_cross_target_platformlinux-64freethreadingnopy_implcp313version3.13
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-64f_hd730d58c
+      osx_arm64_cross_target_platformlinux-64freethreadingnopy_implcp314version3.14:
+        CONFIG: osx_arm64_cross_target_platformlinux-64freethreadingnopy_implcp314version3.14
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-64f_hfb28a802
+      osx_arm64_cross_target_platformlinux-64freethreadingnopy_implcp315version3.15:
+        CONFIG: osx_arm64_cross_target_platformlinux-64freethreadingnopy_implcp315version3.15
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-64f_h3c2343c8
+      osx_arm64_cross_target_platformlinux-64freethreadingnopy_implcpythonversion3.11:
+        CONFIG: osx_arm64_cross_target_platformlinux-64freethreadingnopy_implcpythonversion3.11
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-64f_hab699a89
+      osx_arm64_cross_target_platformlinux-64freethreadingnopy_implcpythonversion3.12:
+        CONFIG: osx_arm64_cross_target_platformlinux-64freethreadingnopy_implcpythonversion3.12
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-64f_hd37a7628
+      osx_arm64_cross_target_platformlinux-64freethreadingyespy_implcp313tversion3.13:
+        CONFIG: osx_arm64_cross_target_platformlinux-64freethreadingyespy_implcp313tversion3.13
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-64f_hc17bd6a3
+      osx_arm64_cross_target_platformlinux-64freethreadingyespy_implcp314tversion3.14:
+        CONFIG: osx_arm64_cross_target_platformlinux-64freethreadingyespy_implcp314tversion3.14
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-64f_hf9ec8207
+      osx_arm64_cross_target_platformlinux-64freethreadingyespy_implcp315tversion3.15:
+        CONFIG: osx_arm64_cross_target_platformlinux-64freethreadingyespy_implcp315tversion3.15
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-64f_h8ef800f9
+      osx_arm64_cross_target_platformlinux-aarch64freethreadingnopy_implcp313version3.13:
+        CONFIG: osx_arm64_cross_target_platformlinux-aarch64freethreadingnopy_implcp313version3.13
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-aar_h56550722
+      osx_arm64_cross_target_platformlinux-aarch64freethreadingnopy_implcp314version3.14:
+        CONFIG: osx_arm64_cross_target_platformlinux-aarch64freethreadingnopy_implcp314version3.14
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-aar_he6086040
+      osx_arm64_cross_target_platformlinux-aarch64freethreadingnopy_implcp315version3.15:
+        CONFIG: osx_arm64_cross_target_platformlinux-aarch64freethreadingnopy_implcp315version3.15
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-aar_hd2f18517
+      osx_arm64_cross_target_platformlinux-aarch64freethreadingnopy_implcpythonversion3.11:
+        CONFIG: osx_arm64_cross_target_platformlinux-aarch64freethreadingnopy_implcpythonversion3.11
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-aar_hd0f28f81
+      osx_arm64_cross_target_platformlinux-aarch64freethreadingnopy_implcpythonversion3.12:
+        CONFIG: osx_arm64_cross_target_platformlinux-aarch64freethreadingnopy_implcpythonversion3.12
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-aar_h1b1939ce
+      osx_arm64_cross_target_platformlinux-aarch64freethreadingyespy_implcp313tversion3.13:
+        CONFIG: osx_arm64_cross_target_platformlinux-aarch64freethreadingyespy_implcp313tversion3.13
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-aar_hcfaaaa79
+      osx_arm64_cross_target_platformlinux-aarch64freethreadingyespy_implcp314tversion3.14:
+        CONFIG: osx_arm64_cross_target_platformlinux-aarch64freethreadingyespy_implcp314tversion3.14
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-aar_h56485335
+      osx_arm64_cross_target_platformlinux-aarch64freethreadingyespy_implcp315tversion3.15:
+        CONFIG: osx_arm64_cross_target_platformlinux-aarch64freethreadingyespy_implcp315tversion3.15
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-aar_h3f6e3117
+      osx_arm64_cross_target_platformlinux-ppc64lefreethreadingnopy_implcp313version3.13:
+        CONFIG: osx_arm64_cross_target_platformlinux-ppc64lefreethreadingnopy_implcp313version3.13
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-ppc_h1a76e8ae
+      osx_arm64_cross_target_platformlinux-ppc64lefreethreadingnopy_implcp314version3.14:
+        CONFIG: osx_arm64_cross_target_platformlinux-ppc64lefreethreadingnopy_implcp314version3.14
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-ppc_hbac445d1
+      osx_arm64_cross_target_platformlinux-ppc64lefreethreadingnopy_implcp315version3.15:
+        CONFIG: osx_arm64_cross_target_platformlinux-ppc64lefreethreadingnopy_implcp315version3.15
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-ppc_h7543c957
+      osx_arm64_cross_target_platformlinux-ppc64lefreethreadingnopy_implcpythonversion3.11:
+        CONFIG: osx_arm64_cross_target_platformlinux-ppc64lefreethreadingnopy_implcpythonversion3.11
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-ppc_h4ecd0e47
+      osx_arm64_cross_target_platformlinux-ppc64lefreethreadingnopy_implcpythonversion3.12:
+        CONFIG: osx_arm64_cross_target_platformlinux-ppc64lefreethreadingnopy_implcpythonversion3.12
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-ppc_h869b1f0f
+      osx_arm64_cross_target_platformlinux-ppc64lefreethreadingyespy_implcp313tversion3.13:
+        CONFIG: osx_arm64_cross_target_platformlinux-ppc64lefreethreadingyespy_implcp313tversion3.13
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-ppc_hefc19ecb
+      osx_arm64_cross_target_platformlinux-ppc64lefreethreadingyespy_implcp314tversion3.14:
+        CONFIG: osx_arm64_cross_target_platformlinux-ppc64lefreethreadingyespy_implcp314tversion3.14
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-ppc_h21fea8cb
+      osx_arm64_cross_target_platformlinux-ppc64lefreethreadingyespy_implcp315tversion3.15:
+        CONFIG: osx_arm64_cross_target_platformlinux-ppc64lefreethreadingyespy_implcp315tversion3.15
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-ppc_h37c184b2
+      osx_arm64_cross_target_platformlinux-riscv64freethreadingnopy_implcp313version3.13:
+        CONFIG: osx_arm64_cross_target_platformlinux-riscv64freethreadingnopy_implcp313version3.13
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-ris_hc7a6ce45
+      osx_arm64_cross_target_platformlinux-riscv64freethreadingnopy_implcp314version3.14:
+        CONFIG: osx_arm64_cross_target_platformlinux-riscv64freethreadingnopy_implcp314version3.14
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-ris_h0fbc3058
+      osx_arm64_cross_target_platformlinux-riscv64freethreadingnopy_implcp315version3.15:
+        CONFIG: osx_arm64_cross_target_platformlinux-riscv64freethreadingnopy_implcp315version3.15
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-ris_h69262404
+      osx_arm64_cross_target_platformlinux-riscv64freethreadingnopy_implcpythonversion3.11:
+        CONFIG: osx_arm64_cross_target_platformlinux-riscv64freethreadingnopy_implcpythonversion3.11
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-ris_habb37a52
+      osx_arm64_cross_target_platformlinux-riscv64freethreadingnopy_implcpythonversion3.12:
+        CONFIG: osx_arm64_cross_target_platformlinux-riscv64freethreadingnopy_implcpythonversion3.12
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-ris_hdcbf8f7e
+      osx_arm64_cross_target_platformlinux-riscv64freethreadingyespy_implcp313tversion3.13:
+        CONFIG: osx_arm64_cross_target_platformlinux-riscv64freethreadingyespy_implcp313tversion3.13
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-ris_hd74df651
+      osx_arm64_cross_target_platformlinux-riscv64freethreadingyespy_implcp314tversion3.14:
+        CONFIG: osx_arm64_cross_target_platformlinux-riscv64freethreadingyespy_implcp314tversion3.14
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-ris_ha5188ae0
+      osx_arm64_cross_target_platformlinux-riscv64freethreadingyespy_implcp315tversion3.15:
+        CONFIG: osx_arm64_cross_target_platformlinux-riscv64freethreadingyespy_implcp315tversion3.15
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformlinux-ris_h53a27afb
+      osx_arm64_cross_target_platformosx-64freethreadingnopy_implcp313version3.13:
+        CONFIG: osx_arm64_cross_target_platformosx-64freethreadingnopy_implcp313version3.13
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformosx-64fre_hc1c3a65c
+      osx_arm64_cross_target_platformosx-64freethreadingnopy_implcp314version3.14:
+        CONFIG: osx_arm64_cross_target_platformosx-64freethreadingnopy_implcp314version3.14
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformosx-64fre_h9b4f6598
+      osx_arm64_cross_target_platformosx-64freethreadingnopy_implcp315version3.15:
+        CONFIG: osx_arm64_cross_target_platformosx-64freethreadingnopy_implcp315version3.15
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformosx-64fre_hd0273399
+      osx_arm64_cross_target_platformosx-64freethreadingnopy_implcpythonversion3.11:
+        CONFIG: osx_arm64_cross_target_platformosx-64freethreadingnopy_implcpythonversion3.11
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformosx-64fre_h087e1988
+      osx_arm64_cross_target_platformosx-64freethreadingnopy_implcpythonversion3.12:
+        CONFIG: osx_arm64_cross_target_platformosx-64freethreadingnopy_implcpythonversion3.12
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformosx-64fre_h3b75a7a3
+      osx_arm64_cross_target_platformosx-64freethreadingyespy_implcp313tversion3.13:
+        CONFIG: osx_arm64_cross_target_platformosx-64freethreadingyespy_implcp313tversion3.13
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformosx-64fre_he9ad6aba
+      osx_arm64_cross_target_platformosx-64freethreadingyespy_implcp314tversion3.14:
+        CONFIG: osx_arm64_cross_target_platformosx-64freethreadingyespy_implcp314tversion3.14
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformosx-64fre_h17c3235a
+      osx_arm64_cross_target_platformosx-64freethreadingyespy_implcp315tversion3.15:
+        CONFIG: osx_arm64_cross_target_platformosx-64freethreadingyespy_implcp315tversion3.15
+        UPLOAD_PACKAGES: 'True'
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        vm_image: macOS-15-arm64
+        CONFIG_SHORT: osx_arm64_cross_target_platformosx-64fre_hd460890e
+  timeoutInMinutes: 360
+  variables: {}
+
+  steps:
+  # TODO: Fast finish on azure pipelines?
+  - script: |
+      export CI=azure
+      export CONDA_BLD_PATH=$(build_workspace_dir)
+      export FEEDSTOCK_NAME=$(basename ${BUILD_REPOSITORY_NAME})
+      export GIT_BRANCH=$BUILD_SOURCEBRANCHNAME
+      export MINIFORGE_HOME=$(tools_install_dir)
+      export OSX_FORCE_SDK_DOWNLOAD="1"
+      export flow_run_id=azure_$(Build.BuildNumber).$(System.JobAttempt)
+      export remote_url=$(Build.Repository.Uri)
+      export sha=$(Build.SourceVersion)
+      if [[ "${BUILD_REASON:-}" == "PullRequest" ]]; then
+        export IS_PR_BUILD="True"
+      else
+        export IS_PR_BUILD="False"
+      fi
+      ./.scripts/run_osx_build.sh
+    displayName: Run OSX build
+    env:
+      BINSTAR_TOKEN: $(BINSTAR_TOKEN)
+      FEEDSTOCK_TOKEN: $(FEEDSTOCK_TOKEN)
+      STAGING_BINSTAR_TOKEN: $(STAGING_BINSTAR_TOKEN)
+
+  - script: |
+      export ARTIFACT_STAGING_DIR="$(Build.ArtifactStagingDirectory)"
+      # Archive everything in CONDA_BLD_PATH except environments
+      export BLD_ARTIFACT_PREFIX=conda_pkgs
+      export CI=azure
+      export CI_RUN_ID=$(build.BuildNumber).$(system.JobAttempt)
+      export CONDA_BLD_PATH=$(build_workspace_dir)
+      export FEEDSTOCK_NAME=$(basename ${BUILD_REPOSITORY_NAME})
+      export MINIFORGE_HOME=$(tools_install_dir)
+      if [[ "$AGENT_JOBSTATUS" == "Failed" ]]; then
+        # Use a distinct prefix on failure (to match GHA).
+        export BLD_ARTIFACT_PREFIX=conda_pkgs_failed
+        # Archive the CONDA_BLD_PATH environments only when the job fails
+        export ENV_ARTIFACT_PREFIX=conda_envs
+        export WRK_ARTIFACT_PREFIX=conda_work
+      fi
+      ./.scripts/create_conda_build_artifacts.sh
+    displayName: Prepare conda build artifacts
+    condition: and(succeededOrFailed(), eq(variables.store_build_artifacts, true))
+
+  - task: PublishPipelineArtifact@1
+    displayName: Store conda build artifacts
+    condition: not(eq(variables.BLD_ARTIFACT_PATH, ''))
+    inputs:
+      targetPath: $(BLD_ARTIFACT_PATH)
+      artifactName: $(BLD_ARTIFACT_NAME)
+
+  - task: PublishPipelineArtifact@1
+    displayName: Store conda work directoryartifacts
+    condition: not(eq(variables.WRK_ARTIFACT_PATH, ''))
+    inputs:
+      targetPath: $(WRK_ARTIFACT_PATH)
+      artifactName: $(WRK_ARTIFACT_NAME)
+
+  - task: PublishPipelineArtifact@1
+    displayName: Store conda build environment artifacts
+    condition: not(eq(variables.ENV_ARTIFACT_PATH, ''))
+    inputs:
+      targetPath: $(ENV_ARTIFACT_PATH)
+      artifactName: $(ENV_ARTIFACT_NAME)
