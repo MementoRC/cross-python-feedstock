@@ -82,6 +82,7 @@ tests:
           - set CONDA_BUILD_STATE=
           - set "BUILD_PREFIX=%PREFIX%"
           - set "_SMOKE_PATH=%PATH%"
+          - set "_SMOKE_VSCMD=%VSCMD_ARG_TGT_ARCH%"
           - call %PREFIX%\etc\conda\activate.d\activate_z-cross-python_${{ cross_target_platform }}.bat
           - python smoketest\check_activation.py ${{ cross_target_platform }}
           # T4: the vs_win-arm64 compiler emits ARM64 objects

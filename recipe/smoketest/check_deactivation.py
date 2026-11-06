@@ -13,6 +13,7 @@ for var in (
 ):
     assert var not in os.environ, var
 assert os.environ["PATH"] == os.environ["_SMOKE_PATH"], "PATH not restored"
+assert os.environ.get("VSCMD_ARG_TGT_ARCH", "") == os.environ.get("_SMOKE_VSCMD", ""), "VSCMD_ARG_TGT_ARCH not restored"
 assert "cross-python" not in os.environ.get("PYTHONPATH", ""), os.environ.get("PYTHONPATH")
 assert sysconfig.get_platform() == "win-amd64", sysconfig.get_platform()
 print("deactivation OK")
