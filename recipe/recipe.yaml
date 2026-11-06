@@ -31,11 +31,10 @@ build:
 
 requirements:
   build:
-    - if: unix
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+    - if: win
       then:
-        - ${{ compiler('c') }}
-        - ${{ stdlib('c') }}
-      else:
         - m2-bash
         - m2-coreutils
   host:
@@ -90,7 +89,7 @@ tests:
           - call %PREFIX%\etc\conda\deactivate.d\deactivate_z-cross-python_${{ cross_target_platform }}.bat
           - python smoketest\check_deactivation.py
           # T5: a literal %PREFIX%\python.exe must reach the build python
-          - python smoketest\smoke_shim.py %PREFIX%\etc\conda\activate.d\activate_z-cross-python_${{ cross_target_platform }}.bat %PREFIX%\etc\conda\deactivate.d\deactivate_z-cross-python_${{ cross_target_platform }}.bat
+          - python smoketest\smoke_shim.py %PREFIX%\etc\conda\activate.d\activate_z-cross-python_${{ cross_target_platform }}.bat %PREFIX%\etc\conda\deactivate.d\deactivate_z-cross-python_${{ cross_target_platform }}.bat --strict
 
 about:
   license: LicenseRef-OTHER

@@ -38,6 +38,14 @@ set "_CROSS_PYTHON_INCLUDE="
 rem pip: install into the target prefix, not the build python's own
 set "PIP_PREFIX=%PREFIX%"
 
+rem recipe scripts call the target python by its literal path, which cannot
+rem run here: put the x64 launcher in its place. Rename, never overwrite: the
+rem original is hardlinked to the package cache.
+if /i not "%PREFIX%" == "%BUILD_PREFIX%" if exist "%PREFIX%\python.exe" if not exist "%PREFIX%\python.exe.cross-python-orig" (
+  move /y "%PREFIX%\python.exe" "%PREFIX%\python.exe.cross-python-orig" >nul
+  copy /y "%BUILD_PREFIX%\etc\conda\cross-python\python-shim.exe" "%PREFIX%\python.exe" >nul
+)
+
 rem pyo3
 set "PYO3_CROSS_LIB_DIR=%PREFIX%\libs"
 set "PYO3_CROSS_PYTHON_VERSION=@PY_VER@"

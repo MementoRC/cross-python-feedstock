@@ -2,6 +2,11 @@
 if not "%CONDA_BUILD%" == "1" exit /b 0
 if "%CONDA_BUILD_STATE%" == "TEST" exit /b 0
 
+if exist "%PREFIX%\python.exe.cross-python-orig" (
+  del /f "%PREFIX%\python.exe"
+  move /y "%PREFIX%\python.exe.cross-python-orig" "%PREFIX%\python.exe" >nul
+)
+
 set "PYTHON=%_CONDA_BACKUP_CROSS_PYTHON_PYTHON%"
 set "PATH=%_CONDA_BACKUP_CROSS_PYTHON_PATH%"
 set "PYTHONPATH=%_CONDA_BACKUP_CROSS_PYTHON_PYTHONPATH%"

@@ -36,6 +36,10 @@ if [[ "${cross_target_platform}" == win-* ]]; then
   cat "${PREFIX}/etc/conda/activate.d/activate_z-${PKG_NAME}.bat"
   cp "${RECIPE_DIR}/deactivate-cross-python.bat" "${PREFIX}/etc/conda/deactivate.d/deactivate_z-${PKG_NAME}.bat"
   cp "${RECIPE_DIR}/sitecustomize.py" "${PREFIX}/etc/conda/cross-python/sitecustomize.py"
+  # x64 launcher the activation puts in place of the target python.exe (see
+  # shim/shim_win.c); MSYS must not rewrite the cl arguments as paths
+  MSYS2_ARG_CONV_EXCL='*' cl.exe -nologo -O2 -W3 "${RECIPE_DIR}\\shim\\shim_win.c" \
+    -Fe"${PREFIX}\\etc\\conda\\cross-python\\python-shim.exe"
   exit 0
 fi
 
