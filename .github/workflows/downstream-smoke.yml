@@ -1,0 +1,45 @@
+# FORK-ONLY: drop before upstream. Builds cross-python for one win-arm64
+# variant, uses it in a real downstream cross build, then imports the
+# result on a native win-arm64 runner.
+name: downstream smoke
+
+on:
+  push:
+    branches: [win-arm64]
+  workflow_dispatch:
+
+jobs:
+  cross-build:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - uses: prefix-dev/setup-pixi@v0.8.1
+        with:
+          run-install: false
+      - name: build cross-python
+        run: pixi exec --spec rattler-build==0.80.0 rattler-build build -r recipe -m .ci_support/win_64_cross_target_platformwin-arm64freethreadingnopy_implcp314version3.14.yaml --output-dir output
+      - name: cross-build the downstream package
+        run: pixi exec --spec rattler-build==0.80.0 rattler-build build -r smoketest-downstream -m smoketest-downstream/variants.yaml --target-platform win-arm64 --test skip -c ./output -c conda-forge --output-dir output
+      - name: check the downstream package
+        run: pixi exec --spec python=3.14 --spec zstandard python -I smoketest-downstream/check_package.py output/win-arm64
+      - uses: actions/upload-artifact@v4
+        with:
+          name: channel
+          path: output
+
+  native-import:
+    needs: cross-build
+    runs-on: windows-11-arm
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: channel
+          path: output
+      - uses: prefix-dev/setup-pixi@v0.8.1
+        with:
+          run-install: false
+      - name: import on win-arm64
+        shell: pwsh
+        run: |
+          $channel = "file:///" + ("$env:GITHUB_WORKSPACE/output" -replace '\\', '/')
+          pixi exec -c $channel -c conda-forge --spec python=3.14 --spec cross-python-smoke python -c "import smoke, sysconfig; print(sysconfig.get_platform(), smoke.__file__); assert smoke.add(2, 3) == 5"
