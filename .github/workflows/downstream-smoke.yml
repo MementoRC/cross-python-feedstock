@@ -1,0 +1,62 @@
+# FORK-ONLY: drop before upstream. Builds cross-python for one linux-aarch64
+# and one osx-arm64 to win-64 variant (cp314), uses each in a real downstream
+# cross build, then imports the result on a native win-64 runner.
+name: downstream smoke
+
+on:
+  push:
+    branches: [win64-more-hosts-rehearsal]
+  workflow_dispatch:
+
+jobs:
+  cross-build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: ubuntu-24.04-arm
+            config: linux_aarch64_cross_target_platformwin-64freethreadingnopy_implcp314version3.14
+            host: linux-aarch64
+          - runner: macos-14
+            config: osx_arm64_cross_target_platformwin-64freethreadingnopy_implcp314version3.14
+            host: osx-arm64
+    runs-on: ${{ matrix.runner }}
+    env:
+      # makes the clang_win-64 activation default CONDA_BUILD_WINSDK
+      CI: "true"
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: prefix-dev/setup-pixi@v0.11.3
+        with:
+          run-install: false
+      - name: build cross-python
+        run: pixi exec --spec rattler-build==0.80.0 rattler-build build -r recipe -m .ci_support/${{ matrix.config }}.yaml --output-dir output
+      - name: cross-build the downstream package
+        run: pixi exec --spec rattler-build==0.80.0 rattler-build build -r smoketest-downstream -m smoketest-downstream/variants.yaml --target-platform win-64 --test skip -c ./output -c conda-forge --output-dir output
+      - name: check the downstream package
+        run: pixi exec --spec python=3.14 --spec zstandard python -I smoketest-downstream/check_package.py output/win-64
+      - uses: actions/upload-artifact@v7.0.2
+        with:
+          name: channel-${{ matrix.host }}
+          path: output
+
+  native-import:
+    needs: cross-build
+    strategy:
+      fail-fast: false
+      matrix:
+        host: [linux-aarch64, osx-arm64]
+    runs-on: windows-latest
+    steps:
+      - uses: actions/download-artifact@v8.0.2
+        with:
+          name: channel-${{ matrix.host }}
+          path: output
+      - uses: prefix-dev/setup-pixi@v0.11.3
+        with:
+          run-install: false
+      - name: import on win-64
+        shell: pwsh
+        run: |
+          $channel = "file:///" + ("$env:GITHUB_WORKSPACE/output" -replace '\\', '/')
+          pixi exec -c $channel -c conda-forge --spec python=3.14 --spec cross-python-smoke python -c "import smoke, sysconfig; print(sysconfig.get_platform(), smoke.__file__); assert smoke.add(2, 3) == 5"
