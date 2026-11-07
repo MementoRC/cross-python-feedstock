@@ -17,7 +17,7 @@ jobs:
           - runner: ubuntu-24.04-arm
             config: linux_aarch64_cross_target_platformwin-64freethreadingnopy_implcp314version3.14
             host: linux-aarch64
-          - runner: macos-14
+          - runner: macos-15
             config: osx_arm64_cross_target_platformwin-64freethreadingnopy_implcp314version3.14
             host: osx-arm64
     runs-on: ${{ matrix.runner }}
