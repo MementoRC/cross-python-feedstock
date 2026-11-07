@@ -74,6 +74,7 @@ tests:
             - smoketest/*
         requirements:
           run:
+            - pip
             - setuptools
             - packaging
         script:
