@@ -13,6 +13,8 @@ build:
   # also on Windows, where bash comes from m2-bash in the build env
   script: build.sh
   skip:
+    # FORK-ONLY: only the linux to win-64 lane while iterating; drop before upstream
+    - cross_target_platform != "win-64"
     - cross_target_platform == target_platform
     # win-arm64 is the only Windows cross target built from win-64
     - win and cross_target_platform != "win-arm64"

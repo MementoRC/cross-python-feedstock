@@ -11,6 +11,8 @@ conda_build:
 workflow_settings:
   store_build_artifacts: true
 provider:
+  # FORK-ONLY: the fork has no Azure; drop before upstream
+  linux_64: github_actions
   linux_aarch64: default
   osx_arm64: default
 test: native_and_emulated

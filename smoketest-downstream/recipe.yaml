@@ -1,0 +1,42 @@
+# FORK-ONLY: a real downstream cross build that uses cross-python the way a
+# feedstock would; run by .github/workflows/downstream-smoke.yml.
+schema_version: 1
+
+package:
+  name: cross-python-smoke
+  version: "0.1"
+
+source:
+  path: src
+
+build:
+  number: 0
+  script:
+    env:
+      # rattler-build does not pass CI to the build script; the clang_win-64
+      # winsdk and msvc-headers-libs activations need it to pick their CI
+      # download dir (a downstream feedstock needs the same)
+      CI: ${{ env.get("CI", default="") }}
+    content:
+      # renders to $PREFIX/python.exe or $PREFIX/bin/python of the win-64 python
+      - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  build:
+    - cross-python_${{ target_platform }} 3.14.* *_cp314
+    - python 3.14.* *_cp314
+    - setuptools
+    - pip
+    # clang_win-64; there is no stdlib package for a linux-hosted win-64
+    # target, the Windows SDK comes with the compiler activation
+    - ${{ compiler('c') }}
+  host:
+    - python 3.14.* *_cp314
+    - setuptools
+    - pip
+  run:
+    - python
+
+about:
+  license: BSD-3-Clause
+  summary: Downstream smoke test for cross-python on win-64
